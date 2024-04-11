@@ -4,7 +4,7 @@
 //! 1- Inclua o nome, idade, profissão e estado de origem dos participantes do grupo no array
 //! 2- Apresente a quantidade total de pacientes do array
 //! 3- Apresente os pacientes com mais de 20 anos e print o nome deles
-//! 4- Apresente quantos pacientes existem para cada profissão (desenvolvedor, estudante, dentidata, jornalista)
+//! 4- Apresente quantos pacientes existem para cada profissão (desenvolvedor, estudante, dentista, jornalista)
 //! 5- Apresente a quantidade de pacientes que moram em SP
 
 //! Enviar no e-mail profbeto.silva@fiap.com.br
@@ -15,17 +15,52 @@ void main(List<String> args) {
     'Manoel Silva|12|Estudante|AL',
     'Joaquim Rahman|18|Estudante|SP',
     'Fernando Verne|35|Estudante|PE',
-    'gustavo Silva|40|Desenvolvedor|CE',
+    'Gustavo Silva|40|Desenvolvedor|CE',
     'Sandra Silva|40|Desenvolvedor|MG',
-    'Rgina Verne|35|Dentista|MG',
+    'Regina Verne|35|Dentista|MG',
     'Joao Rahman|55|Jornalista|RJ',
     'Gabriel Arbigaus|21|Desenvolvedor|SC',
     'Guilherme Cardoso|19|Desenvolvedor|SP',
   ];
 
-
-  print(pacientes);
+// 2-
+//  print(pacientes.length);
+// 3-
+//  pacientesMais20(pacientes);
+// 4-
+  int count = 0;
+  for (var i = 0; i < pacientes.length; i++) {
+    var p = pacientes[i].split('|');
+    for (var j = 1; j < pacientes.length - 1; j++) {
+      var p2 = p[2];
+      if () {
+        
+      }
+    }
+  }
+// 5-
+//  print("A quantidade de pacientes que moram em SP é ${pacientesCadaPosicao(pacientes)}");
 }
+
+  void pacientesMais20(List paciente) {
+    for (var i = 0; i < paciente.length; i++) {
+      var p = paciente[i].split('|');
+      if (int.parse(p[1]) >= 20) {
+        print(p[0]);
+      }
+    }
+  }
+
+  int pacientesCadaPosicao(List paciente) {
+    int count = 0;
+    for (var i = 0; i < paciente.length; i++) {
+    var p = paciente[i].split('|');
+      if (p[3] == 'SP') {
+        count ++;
+      }
+    }
+    return count;
+  }
 
 
 
