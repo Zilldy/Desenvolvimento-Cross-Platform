@@ -23,24 +23,39 @@ void main(List<String> args) {
     'Guilherme Cardoso|19|Desenvolvedor|SP',
   ];
 
+
 // 2-
 //  print(pacientes.length);
 // 3-
 //  pacientesMais20(pacientes);
 // 4-
-  int count = 0;
-  for (var i = 0; i < pacientes.length; i++) {
-    var p = pacientes[i].split('|');
-    for (var j = 1; j < pacientes.length - 1; j++) {
-      var p2 = p[2];
-      if () {
-        
-      }
-    }
-  }
+    pacientesProf(pacientes);
 // 5-
 //  print("A quantidade de pacientes que moram em SP é ${pacientesCadaPosicao(pacientes)}");
 }
+
+  void pacientesProf(List paciente) {
+    List<String> prof = [];
+    
+    int count = 0;
+    for (var i = 0; i < pacientes.length; i++) {
+      var p = pacientes[i].split('|');
+      for (var j = 1; j < pacientes.length - 1; j++) {
+        var p2 = p[2];
+        print(p2);
+      }
+    }
+
+    Map<String, int> contagem = {};
+
+    for (var item in prof) {
+      contagem[item] ??= 0;
+      contagem[item] = contagem[item]! + 1;
+    }
+    contagem.forEach((item, quantidade) {
+     print('$item: $quantidade');
+    });
+  }
 
   void pacientesMais20(List paciente) {
     for (var i = 0; i < paciente.length; i++) {
