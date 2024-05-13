@@ -6,6 +6,7 @@ class Resposta extends StatelessWidget {
 
   const Resposta(this.texto, this.quandoSelecionado, {super.key});
 
+  // Alterado cor do background da seleção e cor do texto da resposta (Linhas 16 e 17)
   @override
   Widget build(BuildContext context) {
     return SizedBox(

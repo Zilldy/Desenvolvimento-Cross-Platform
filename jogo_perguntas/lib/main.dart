@@ -4,6 +4,9 @@ import './resultado.dart';
 
 void main() => runApp(const PerguntaApp());
 
+// Alterado as questões
+// Adicionado mais uma alternativa em cada resposta
+// Alterado a quantidade de pontos de cada altenativa
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
   var _pontuacaoTotal = 0;
@@ -60,6 +63,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
     return _perguntaSelecionada < _perguntas.length;
   }
 
+  // Alterado o nome que aparece acima na aplicação do celular (Linha 70)
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

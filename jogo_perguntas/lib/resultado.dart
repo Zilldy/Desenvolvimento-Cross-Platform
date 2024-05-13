@@ -7,6 +7,10 @@ class Resultado extends StatelessWidget {
   const Resultado(this.pontuacao, this.quandoReiniciarQuestionario,
       {super.key});
 
+  // Refeito todo o sistema de pontos
+  // Alterado o nível que o usuário irá receber
+  // Adicionado a pontuação do usuário
+  // Adicionado mais um nível para o usuário
   String get fraseResultado {
     if (pontuacao < 9) {
       return 'Nível Ferroviário!! \n Pontuação: ${pontuacao}';
@@ -21,6 +25,8 @@ class Resultado extends StatelessWidget {
     }
   }
 
+  // Alterado o fontsize do texto da respota e do link para reiniciar
+  // Alterado o texto para reiniciar o teste novamente
   @override
   Widget build(BuildContext context) {
     return Column(

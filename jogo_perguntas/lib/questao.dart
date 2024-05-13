@@ -5,6 +5,7 @@ class Questao extends StatelessWidget {
 
   const Questao(this.texto, {super.key});
 
+  // Alterado o font size da questão (Linha 23)
   @override
   Widget build(BuildContext context) {
     return Container(
