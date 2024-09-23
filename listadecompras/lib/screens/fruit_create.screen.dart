@@ -42,7 +42,7 @@ class _FruitCreateState extends State<FruitCreateScreen> {
               onPressed: () {
                 widget.onPress(Fruit(
                   name: _nameController.text,
-                  price: double.parse(_priceController.text),
+                  price: _priceController.text,
                 ));
               },
               child: const Text("Salvar"))

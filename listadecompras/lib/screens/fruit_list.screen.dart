@@ -1,50 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/screens/controller/fruit.controller.screen.dart';
 import 'package:untitled/screens/fruit_create.screen.dart';
+import 'package:untitled/screens/widget/content_get.widget.dart';
 import 'package:untitled/snnipets.dart';
 
-class FruitListScreen extends StatefulWidget {
-  const FruitListScreen({super.key});
+import 'controller/fruit_get.controller.dart';
+
+class ListFruit extends StatefulWidget {
+  const ListFruit({super.key});
 
   @override
-  State<FruitListScreen> createState() => _FruitListScreenState();
+  State<ListFruit> createState() => _ListFruitState();
 }
 
-class _FruitListScreenState extends State<FruitListScreen> {
-  late FruitController _fruitController;
+class _ListFruitState extends State<ListFruit> {
+  late FruitGetController _getController;
 
   @override
   void initState() {
-    _fruitController = FruitController();
+    _getController = FruitGetController();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Lista de Frutas"),
-      ),
-      body: ListenableBuilder(
-        listenable: _fruitController,
-        builder: (BuildContext context, Widget? child) {
-          return ListView.builder(
-              itemCount: _fruitController.fruits.length,
-              itemBuilder: (BuildContext context, int index) {
-                final fruit = _fruitController.fruits[index];
-                return ListTile(
-                  title: Text(fruit.name),
-                  subtitle: Text("Valor: ${fruit.price}"),
-                );
-              });
-        },
-      ),
+      appBar: AppBar(title: const Text("Lista de Frutas")),
+      body: ContentGetWidget(controller: _getController),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           openRoute(
-              context, FruitCreateScreen(onPress: _fruitController.addFruit));
+            context,
+            FruitCreateScreen(
+              onPress: (fruit) {
+                _getController.addFruit(fruit);
+              },
+            ),
+          );
         },
-        child: const Icon(Icons.plus_one_outlined),
+        child: const Icon(Icons.plus_one_sharp),
       ),
     );
   }
