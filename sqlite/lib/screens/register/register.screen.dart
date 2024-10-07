@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sqlite/screens/login/login.screen.dart';
 import '../../snippets.dart';
 import '../task/task.screen.dart';
 import 'register.controller.dart';
@@ -100,7 +101,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 const Text("Jé tem conta? "),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    openRoute(context, const LoginScreen());
+                  },
                   child: const Text(
                     "Login",
                     style: TextStyle(
