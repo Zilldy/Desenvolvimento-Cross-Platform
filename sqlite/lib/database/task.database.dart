@@ -13,7 +13,7 @@ class TaskDataBase {
     if (_database != null) {
       return _database!;
     }
-    _database = await initDataBase(nameDB);
+    _database = await initDataBase("myapp");
     return _database!;
   }
 
@@ -27,14 +27,14 @@ class TaskDataBase {
     await db.execute(createTable);
   }
 
-  Future<int> insert(Task task) async {
+  Future<int> insert(Task value) async {
     final db = await instance.database;
-    return await db.insert(tableName, task.toJson());
+    return await db.insert("tasks", value.toJson());
   }
 
   Future<List<Task>> readAll() async {
     final db = await instance.database;
-    final result = await db.query(tableName);
+    final result = await db.query("tasks");
     return result.map((taskJson) => Task.fromJson(taskJson)).toList();
   }
 }
