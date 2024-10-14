@@ -1,5 +1,12 @@
+const nameDB = "myApp";
 
-const databaseName = '';
+const tableName = "animals";
 
-const crateTable = '''
-''';
+const String createTable = '''
+  CREATE TABLE animals(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    race TEXT NOT NULL,
+    age TEXT NOT NULL
+    )
+ ''';
