@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/screens/animals/animal.controller.dart';
 import '../../domain/animal.dart';
 import '../../util/snippets.dart';
 
@@ -13,12 +14,21 @@ class _AnimalsCreateScreenState extends State<AnimalsCreateScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _raceController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
+  late AnimalController _animalController;
+
+  @override
+  void initState() {
+    _animalController = AnimalController();
+    super.initState();
+  }
 
   _onPressed() {
     final animal = Animal(
         name: _nameController.text,
         race: _raceController.text,
-        age: _ageController.text);
+        age: _ageController.text
+    );
+    _animalController.saveAnimal(animal);
   }
 
   @override
